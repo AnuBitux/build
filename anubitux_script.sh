@@ -131,7 +131,8 @@ dpkg -i bitbox*
 rm -rf bitbox*
 
 # Kalitorify
-systemctl disable tor.service
+systemctl enable ufw
+systemctl disable tor
 git clone https://github.com/brainfucksec/kalitorify
 cd kalitorify
 make install
