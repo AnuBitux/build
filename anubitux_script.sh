@@ -20,8 +20,11 @@ MYCRYPTO2="1.7.17_MyCrypto"
 TREZOR="23.8.1"
 KEEPKEY="2.1.8"
 COINOMI="1.3.0"
-$TORBROWSER="12.5.2"
-$TORBROWSER2="12.5.2_ALL"
+TORBROWSER="12.5.2"
+TORBROWSER2="12.5.2_ALL"
+BITWARDEN="2023.7.1"
+BCVAULT="setup_1.8.4"
+MONEROCLI="0.18.2.2"
 
 apt update
 apt upgrade
@@ -144,7 +147,7 @@ dpkg -i exodus*
 rm -rf exodus*
 
 # BitWarden
-wget --user-agent="Mozilla" 'https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=deb'
+wget --user-agent="Mozilla" https://github.com/bitwarden/clients/releases/download/desktop-v$BITWARDEN/Bitwarden-$BITWARDEN-amd64.deb
 dpkg -i Bitwarden*
 rm -rf Bitwarden*
 
@@ -176,7 +179,6 @@ git clone https://github.com/AnuBitux/VeraDecrypt
 cd Veradecrypt
 virtualenv vdve
 source vdve/bin/activate
-pip3 install -r requirements.txt
 deactivate
 
 # SeedCheck
@@ -283,10 +285,10 @@ cd HW
 wget --user-agent="Mozilla" https://download.live.ledger.com/latest/linux
 wget --user-agent="Mozilla" https://github.com/trezor/trezor-suite/releases/download/v$TREZOR/Trezor-Suite-$TREZOR-linux-x86_64.AppImage
 wget --user-agent="Mozilla" https://github.com/keepkey/keepkey-desktop/releases/download/v$KEEPKEY/KeepKey-Desktop-$KEEPKEY.AppImage
-wget --user-agent="Mozilla" https://dl.update.bc-vault.com/latest?os=linux
+wget --user-agent="Mozilla" https://dl.update.bc-vault.com/downloads/$BCVAULT.tar.gz
 tar -xf setup*
+./setup*
 rm -rf setup*
-# install bcvault
 chmod +x *
 
 cd /home/anubitux/Tools/Privacy
@@ -342,7 +344,7 @@ git clone https://github.com/bccaddress/bccaddress.org
 git clone https://github.com/pointbiz/bitaddress.org
 git clone https://github.com/litecoin-project/liteaddress.org
 git clone https://github.com/JollyMort/monero-wallet-generator
-wget --user-agent="Mozilla" https://downloads.getmonero.org/cli/linux64
+wget --user-agent="Mozilla" https://downloads.getmonero.org/cli/monero-linux-x64-v$MONEROCLI.tar.bz2
 tar -xf monero-linux*
 rm -rf monero-linux
 git clone https://github.com/dashpay/paper.dash.org
