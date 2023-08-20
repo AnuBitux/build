@@ -127,6 +127,7 @@ rm -rf sparrow*
 
 # BitBox
 wget --user-agent="Mozilla" https://github.com/digitalbitbox/bitbox-wallet-app/releases/download/v$BITBOX/bitbox_$BITBOX2.deb
+dpkg -i bitbox*
 rm -rf bitbox*
 
 # Kalitorify
@@ -272,6 +273,9 @@ wget --user-agent="Mozilla" https://featherwallet.org/files/releases/linux-appim
 wget --user-agent="Mozilla" https://github.com/mymonero/mymonero-app-js/releases/download/v$MYMONERO/MyMonero-$MYMONERO.AppImage
 wget --user-agent="Mozilla" https://github.com/MyCryptoHQ/MyCrypto/releases/download/$MYCRYPTO/linux-x86-64_$MYCRYPTO2.AppImage
 wget --user-agent="Mozilla" https://github.com/adityapk00/zecwallet-lite/releases/download/v$ZEC/Zecwallet.Lite-$ZEC.AppImage
+wget --user-agent="Mozilla" https://storage.coinomi.com/binaries/desktop/coinomi-wallet-$COINOMI-linux64.tar.gz
+tar -xf coinomi*
+rm -rf coinomi-wallet-$COINOMI-linux64.tar.gz
 chmod +x *
 
 cd HW
@@ -282,9 +286,6 @@ wget --user-agent="Mozilla" https://dl.update.bc-vault.com/latest?os=linux
 tar -xf setup*
 rm -rf setup*
 # install bcvault
-wget --user-agent="Mozilla" https://storage.coinomi.com/binaries/desktop/coinomi-wallet-$COINOMI-linux64.tar.gz
-tar -xf coinomi*
-rm -rf coinomi-wallet-$COINOMI-linux64.tar.gz
 chmod +x *
 
 cd /home/anubitux/Tools/Privacy
@@ -331,7 +332,6 @@ cp -p online.sh /home/anubitux/Tools
 cp -p photorec.sh /home/anubitux/Tools/Recovery
 cp -p udev.sh /home/anubitux/Tools/Wallets/HW
 cp -p qrencode.sh /home/anubitux/Tools/AddresGen 
-#add to GH 
 cd ..
 rm -rf AnubituxScripts
 
