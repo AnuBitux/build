@@ -102,7 +102,7 @@ cd
 # Adding the anubitux user - answer prompted questions 
 echo ' '
 echo '==========================='
-echo -e ${RED}please set anubitux as username to get all the tools working properly${NC}
+echo -e ${RED}if you want to install the distro, please set anubitux as username to get all the tools working properly${NC}
 echo '==========================='
 echo ' '
 adduser anubitux
@@ -324,6 +324,7 @@ wget --user-agent="Mozilla" https://github.com/trezor/trezor-suite/releases/down
 mv Trezor-Suite* Trezor-Suite.AppImage
 wget --user-agent="Mozilla" https://github.com/keepkey/keepkey-desktop/releases/download/v$KEEPKEY/KeepKey-Desktop-$KEEPKEY.AppImage
 mv KeepKey-D* KeepKey.AppImage
+wget --user-agent="Mozilla" https://data.trezor.io/udev/trezor-udev_2_all.deb
 wget --user-agent="Mozilla" https://dl.update.bc-vault.com/downloads/$BCVAULT.tar.gz
 tar -xf setup*
 ./setup*
@@ -335,6 +336,7 @@ wget --user-agent="Mozilla" https://www.torproject.org/dist/torbrowser/$TORBROWS
 tar -xf tor-browser-linux*
 rm -rf tor-browser-linux*
 mv tor-browser tor-browser_en-US
+chown -R anubitux ./tor-browser_en-US
 
 apt --fix-broken install
 
