@@ -20,11 +20,15 @@ MYCRYPTO2="1.7.17_MyCrypto"
 TREZOR="23.8.1"
 KEEPKEY="2.1.8"
 COINOMI="1.3.0"
-TORBROWSER="12.5.2"
-TORBROWSER2="12.5.2_ALL"
+TORBROWSER="12.5.3"
+TORBROWSER2="12.5.3_ALL"
 BITWARDEN="2023.7.1"
 BCVAULT="setup_1.8.4"
 MONEROCLI="0.18.2.2"
+
+# COLORS
+RED='\033[0;31m'
+NC='\033[0m'
 
 apt update
 apt upgrade
@@ -96,6 +100,11 @@ cp .Xauthority /etc/skel/
 cd
 
 # Adding the anubitux user - answer prompted questions 
+echo ' '
+echo '==========================='
+echo -e ${RED}please set anubitux as username to get all the tools working properly${NC}
+echo '==========================='
+echo ' '
 adduser anubitux
 
 cd custom_files/home/anubitux/temp_git
@@ -176,7 +185,7 @@ pip3 install virtualenv
 #VeraDecrypt
 cd /home/anubitux/Tools/Recovery
 git clone https://github.com/AnuBitux/VeraDecrypt
-cd Veradecrypt
+cd VeraDecrypt
 virtualenv vdve
 source vdve/bin/activate
 deactivate
@@ -234,10 +243,20 @@ deactivate
 cd /home/anubitux/Tools/Recovery
 git clone https://github.com/AnuBitux/BTCKeySearch
 cd BTCKeySearch
-virtualenv bkve/bin/activate
+virtualenv bkve
 source bkve/bin/activate
 pip3 install -r requirements.txt
 deactivate
+
+# SeedBF
+cd /home/anubitux/Tools/Recovery
+git clone https://github.com/AnuBitux/SeedBF
+cd SeedBF
+virtualenv sbve
+source sbve/bin/activate
+pip3 install -r requirements.txt
+deactivate
+cd
 
 # Creating commands
 ln -s /home/anubitux/Tools/AddressGen/Dice2Seed/Dice2Seed.py /usr/bin/
@@ -269,13 +288,20 @@ chmod +x /usr/bin/seedbf.py
 #DOWNLOAD
 cd /home/anubitux/Tools/Wallets
 wget --user-agent="Mozilla" https://download.electrum.org/$ELECTRUM/electrum-$ELECTRUM-x86_64.AppImage
+mv electrum-4* electrum-btc.AppImage
 wget --user-agent="Mozilla" https://electroncash.org/downloads/$ELECTRON/win-linux/Electron-Cash-$ELECTRON-x86_64.AppImage
+mv Electron-Cash-* Electron-Cash.AppImage
 wget --user-agent="Mozilla" https://electrum-ltc.org/download/electrum-ltc-$ELECTRUM_LTC-x86_64.AppImage
+mv electrum-ltc* electrum-ltc.AppImage
 wget --user-agent="Mozilla" https://greenupdate.blockstream.com/desktop/$GREEN/BlockstreamGreen-x86_64.AppImage
 wget --user-agent="Mozilla" https://featherwallet.org/files/releases/linux-appimage/feather-$FEATHER.AppImage
+mv feather-* feather.AppImage
 wget --user-agent="Mozilla" https://github.com/mymonero/mymonero-app-js/releases/download/v$MYMONERO/MyMonero-$MYMONERO.AppImage
+mv MyMonero-* MyMonero.AppImage
 wget --user-agent="Mozilla" https://github.com/MyCryptoHQ/MyCrypto/releases/download/$MYCRYPTO/linux-x86-64_$MYCRYPTO2.AppImage
+mv linux-x86-64* MyCrypto.AppImage
 wget --user-agent="Mozilla" https://github.com/adityapk00/zecwallet-lite/releases/download/v$ZEC/Zecwallet.Lite-$ZEC.AppImage
+mv Zecwallet* Zecwallet.Lite.AppImage
 wget --user-agent="Mozilla" https://storage.coinomi.com/binaries/desktop/coinomi-wallet-$COINOMI-linux64.tar.gz
 tar -xf coinomi*
 rm -rf coinomi-wallet-$COINOMI-linux64.tar.gz
@@ -283,8 +309,12 @@ chmod +x *
 
 cd HW
 wget --user-agent="Mozilla" https://download.live.ledger.com/latest/linux
+mv ledger* ledger-live.AppImage
+mv linux ledger-live.AppImage
 wget --user-agent="Mozilla" https://github.com/trezor/trezor-suite/releases/download/v$TREZOR/Trezor-Suite-$TREZOR-linux-x86_64.AppImage
+mv Trezor-Suite* Trezor-Suite.AppImage
 wget --user-agent="Mozilla" https://github.com/keepkey/keepkey-desktop/releases/download/v$KEEPKEY/KeepKey-Desktop-$KEEPKEY.AppImage
+mv KeepKey-D* KeepKey.AppImage
 wget --user-agent="Mozilla" https://dl.update.bc-vault.com/downloads/$BCVAULT.tar.gz
 tar -xf setup*
 ./setup*
@@ -293,8 +323,9 @@ chmod +x *
 
 cd /home/anubitux/Tools/Privacy
 wget --user-agent="Mozilla" https://www.torproject.org/dist/torbrowser/$TORBROWSER/tor-browser-linux64-$TORBROWSER2.tar.xz
-tar -xf tor-browser*
-rm -rf tor-browser*
+tar -xf tor-browser-linux*
+rm -rf tor-browser-linux*
+mv tor-browser tor-browser_en-US
 
 apt --fix-broken install
 
@@ -334,7 +365,9 @@ cp -p offline.sh /home/anubitux/Tools
 cp -p online.sh /home/anubitux/Tools
 cp -p photorec.sh /home/anubitux/Tools/Recovery
 cp -p udev.sh /home/anubitux/Tools/Wallets/HW
-cp -p qrencode.sh /home/anubitux/Tools/AddresGen 
+cp -p qrencode.sh /home/anubitux/Tools/AddressGen 
+cp -p disclaimerpage.html /home/anubitux/Tools/FFdisclaimer
+cp -p logo.png /home/anubitux/Tools/FFdisclaimer
 cd ..
 rm -rf AnubituxScripts
 
@@ -347,6 +380,7 @@ git clone https://github.com/JollyMort/monero-wallet-generator
 wget --user-agent="Mozilla" https://downloads.getmonero.org/cli/monero-linux-x64-v$MONEROCLI.tar.bz2
 tar -xf monero-linux*
 rm -rf monero-linux
+mv monero-x86_64* monero-cli
 git clone https://github.com/dashpay/paper.dash.org
 cd /home/anubitux/Tools/UsefulTools
 git clone https://github.com/ASeriousMister/passgen.py
@@ -374,4 +408,4 @@ rm -rf /usr/share/plymouth/themes/softwaves
 rm -rf /usr/share/plymouth/themes/spacefun
 
 # Starting the bulding process
-echo type exit to start the iso creation process
+echo -e type ${RED}exit${NC} to start the iso creation process
