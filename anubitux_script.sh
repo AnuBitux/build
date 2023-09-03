@@ -189,6 +189,7 @@ cd VeraDecrypt
 virtualenv vdve
 source vdve/bin/activate
 deactivate
+chmod +x veradecrypt.sh
 
 # SeedCheck
 cd /home/anubitux/Tools/WalletTools/
@@ -198,6 +199,7 @@ virtualenv scve
 source scve/bin/activate
 pip3 install -r requirements.txt
 deactivate
+chmod +x seedcheck.sh
 
 # DiceTracker
 cd /home/anubitux/Tools/AddressGen/
@@ -207,12 +209,14 @@ virtualenv dtve
 source dtve/bin/activate
 pip3 install -r requirements.txt
 deactivate
+chmod +x dicetracker.sh
 
 # Dice2Seed
 cd /home/anubitux/Tools/AddressGen/
 git clone https://github.com/AnuBitux/Dice2Seed
 cd Dice2Seed
 virtualenv dsve
+chmod +x Dice2Seed.sh
 
 # LastWord
 cd /home/anubitux/Tools/AddressGen/
@@ -229,6 +233,8 @@ source brve/bin/activate
 pip3 install -r requirements.txt
 pip3 install -r requirements-full.txt
 deactivate
+chmod +x btcrecover.sh
+chmod +x seedrecover.sh
 
 # SeedSearch
 cd /home/anubitux/Tools/Recovery
@@ -238,6 +244,7 @@ virtualenv ssve
 source ssve/bin/activate
 pip3 install -r requirements.txt
 deactivate
+chmod +x seedsearch.sh
 
 # BtcKeySearch
 cd /home/anubitux/Tools/Recovery
@@ -247,6 +254,7 @@ virtualenv bkve
 source bkve/bin/activate
 pip3 install -r requirements.txt
 deactivate
+chmod +x btckeysearch.sh
 
 # SeedBF
 cd /home/anubitux/Tools/Recovery
@@ -256,6 +264,7 @@ virtualenv sbve
 source sbve/bin/activate
 pip3 install -r requirements.txt
 deactivate
+chmod +x seedbf.sh
 cd
 
 # Creating commands
