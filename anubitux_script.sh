@@ -166,7 +166,7 @@ dpkg -i atomic*
 rm -rf atomic*
 
 # VeraCrypt
-wget --user-agent="Mozilla" https://launchpad.net/veracrypt/trunk/1.25.9/+download/veracrypt-$VERACRYPT-Debian-11-amd64.deb
+wget --user-agent="Mozilla" https://launchpad.net/veracrypt/trunk/$VERACRYPT/+download/veracrypt-$VERACRYPT-Debian-11-amd64.deb
 dpkg -i veracrypt*
 rm -rf veracrypt*
 
