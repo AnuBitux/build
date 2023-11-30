@@ -1,8 +1,10 @@
 #!/bin/bash
 
+# Version 2.5 30-Nov-2023
+
 # VARIABLES
-SPARROW="1.7.9"
-EXODUS="23.10.23"
+SPARROW="1.8.1"
+EXODUS="23.11.28"
 ATOMIC="2.76.4"
 # https://get.atomicwallet.io/download/latest-debian.txt
 ZEC="1.8.8"
@@ -17,13 +19,13 @@ FEATHER="2.5.2"
 MYMONERO="1.3.2"
 MYCRYPTO="1.7.17"
 MYCRYPTO2="1.7.17_MyCrypto"
-TREZOR="23.10.1"
-KEEPKEY="2.1.20"
+TREZOR="23.11.5"
+KEEPKEY="2.1.35"
 COINOMI="1.3.0"
-TORBROWSER="13.0"
-TORBROWSER2="13.0_ALL"
-BITWARDEN="2023.9.3"
-BCVAULT="setup_2.0.1"
+TORBROWSER="13.0.5"
+TORBROWSER2="13.0.5_ALL"
+BITWARDEN="2023.10.1"
+BCVAULT="setup_2.0.3"
 MONEROCLI="0.18.3.1"
 
 # COLORS
@@ -32,7 +34,7 @@ NC='\033[0m'
 
 apt update
 apt upgrade
-apt -y install linux-image-amd64 linux-headers-amd64 cinnamon firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-intelwimax firmware-iwlwifi firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter firmware-b43-installer firmware-b43legacy-installer intel-media-va-driver-non-free libva-drm2 libva-x11-2 mesa-va-drivers i965-va-driver-shaders libnvcuvid1 xorg intel-microcode printer-driver-all fonts-crosextra-caladea fonts-crosextra-carlito wireshark tshark ffmpeg qrencode searchmonkey testdisk kleopatra keepassxc zulucrypt-gui firefox-esr ntfs-3g exfat-fuse wkhtmltopdf libsecp256k1-0 evince python3-tk python3-pip hashcat gedit libreoffice-writer libreoffice-calc tor secure-delete git python3-pip libwxgtk3.0-gtk3-0v5 qtqr scdaemon firmware-intel-sound firmware-sof-signed zstd macchanger curl flameshot wget gnupg iptables ntp zenity make python3-full whois libusb-1.0-0-dev libudev-dev git libccid pcscd libopengl-dev
+apt -y install linux-image-amd64 linux-headers-amd64 cinnamon firmware-linux firmware-linux-nonfree firmware-misc-nonfree firmware-realtek firmware-atheros firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-intelwimax firmware-iwlwifi firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter firmware-b43-installer firmware-b43legacy-installer intel-media-va-driver-non-free libva-drm2 libva-x11-2 mesa-va-drivers i965-va-driver-shaders libnvcuvid1 xorg intel-microcode printer-driver-all fonts-crosextra-caladea fonts-crosextra-carlito wireshark tshark ffmpeg qrencode searchmonkey testdisk kleopatra keepassxc zulucrypt-gui firefox-esr ntfs-3g exfat-fuse wkhtmltopdf libsecp256k1-0 evince python3-tk python3-pip hashcat gedit libreoffice-writer libreoffice-calc tor secure-delete git python3-pip libwxgtk3.0-gtk3-0v5 qtqr scdaemon firmware-intel-sound firmware-sof-signed zstd macchanger curl flameshot wget gnupg iptables ntp zenity make python3-full whois libusb-1.0-0-dev libudev-dev git libccid pcscd libopengl-dev guymager open-vm-tools open-vm-tools-desktop gnome-calculator gufw python3-full python3-virtualenv curl unzip libportaudio2 secure-delete shotwell firmware-atheros firmware-realtek firmware-amd-graphics software-properties-common gdebi firmware-b43-installer intel-microcode firmware-realtek firmware-atheros firmware-libertas firmware-brcm80211 grub-efi npm firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-ipw2x00 firmware-intelwimax firmware-libertas firmware-netxen firmware-zd1211 b43-fwcutter firmware-b43-installer firmware-b43legacy-installer firmware-intel-sound firmware-sof-signed mesa-va-drivers intel-microcode i965-va-driver-shaders intel-media-va-driver-non-free vim net-tools libegl1-mesa libgl1-mesa-glx libxcb-cursor0 libxcb-xtest0 ibus libopengl-dev apt-utils firmware-netronome firmware-myricom debconf-i18n firmware-qlogic firmware-siano hdmi2usb-fx2-firmware pcscd firmware-ath9k-htc firmware-bnx2 firmware-bnx2x firmware-brcm80211 firmware-cavium firmware-ipw2x00 firmware-ivtv nvidia-detect pm-utils
 
 apt -y --purge remove libreoffice-math libreoffice-draw apache2-bin
 apt -y --purge autoremove
@@ -82,7 +84,7 @@ cp -r -p homeworld/* /usr/share/plymouth/themes/homeworld/
 cp -r lightdm/* /etc/lightdm
 cp -r Pictures/ /etc/skel/
 cp -r Templates /etc/skel/
-cp -r -p .bitcoinlib /etc/skel/
+#cp -r -p .bitcoinlib /etc/skel/
 cp -r -p .cinnamon/ /etc/skel/
 cp -r -p .config /etc/skel/
 cp -r -p .icons /etc/skel/
