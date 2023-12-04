@@ -20,6 +20,10 @@ cd distro
 ```
 Configure the iso parameters
 ```
+lb config -b iso --cache true --apt-recommends true -a amd64 --binary-images iso --debian-installer none --linux-flavours amd64 --mode debian --debian-installer-gui false --archive-areas "main contrib non-free" --security true --win32-loader false --interactive shell --updates true --iso-application anubitux --iso-publisher https://anubitux.org --iso-volume anubitux --memtest none
+```
+If you want to able to install it, use this parameters
+```
 lb config -b iso --cache true --apt-recommends true -a amd64 --binary-images iso --debian-installer live --linux-flavours amd64 --mode debian --debian-installer-gui true --archive-areas "main contrib non-free" --security true --win32-loader false --interactive shell --updates true --iso-application anubitux --iso-publisher https://anubitux.org --iso-volume anubitux --memtest none
 ```
 Obtain root privileges
