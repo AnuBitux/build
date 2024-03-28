@@ -1,3 +1,5 @@
+## This code will no longer be updated, progect has been moved here: https://github.com/AnuBitux-project/build
+
 # Build AnuBitux
 How we build AnuBitux and how to build it by yourself   
 More info on our [official website](https://anubitux.org/how-to-build-anubitux-by-yourself/)  
